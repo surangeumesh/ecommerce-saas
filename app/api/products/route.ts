@@ -13,11 +13,8 @@ export async function POST(req: Request) {
     await connectDB();
 
     const body = await req.json();
-    console.log("BODY:", body); // 👈 DEBUG
 
     const product = await Product.create(body);
-
-    console.log("CREATED:", product); // 👈 DEBUG
 
     return NextResponse.json(product);
   } catch (error) {
